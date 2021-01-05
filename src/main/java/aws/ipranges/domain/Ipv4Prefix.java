@@ -3,14 +3,6 @@ package aws.ipranges.domain;
 
 public class Ipv4Prefix extends IpPrefix {
 
-    Ipv4Prefix(String region, String service, String network_border_group) {
-        super(region, service, network_border_group);
-    }
-
-    public Ipv4Prefix(){
-        super();
-    }
-
     public String getIp_prefix() {
         return ip_prefix;
     }

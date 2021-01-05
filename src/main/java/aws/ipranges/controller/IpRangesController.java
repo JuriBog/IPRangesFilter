@@ -18,9 +18,11 @@ import java.util.stream.Stream;
 @RequestMapping("/ip-ranges")
 public class IpRangesController {
 
-    @Autowired
     private WebClient webClient;
 
+    public IpRangesController(WebClient client){
+        this.webClient = client;
+    }
 
     @GetMapping
     public Mono<ResponseEntity<String>> getIpRangesById(@RequestParam("region") String region){

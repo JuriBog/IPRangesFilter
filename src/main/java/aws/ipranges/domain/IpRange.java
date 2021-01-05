@@ -1,25 +1,14 @@
 package aws.ipranges.domain;
 
-import lombok.Builder;
-import org.inferred.freebuilder.FreeBuilder;
-
 import java.util.List;
 
-@Builder
+
 public class IpRange {
     private java.lang.String syncToken;
     private java.lang.String createDate;
     private List<Ipv4Prefix> prefixes;
     private List<Ipv6Prefix> ipv6_prefixes;
 
-    public IpRange(String syncToken, String createDate, List<Ipv4Prefix> prefixes, List<Ipv6Prefix> ipv6_prefixes) {
-        this.syncToken = syncToken;
-        this.createDate = createDate;
-        this.prefixes = prefixes;
-        this.ipv6_prefixes = ipv6_prefixes;
-    }
-
-    public IpRange(){}
 
     public String getSyncToken() {
         return syncToken;

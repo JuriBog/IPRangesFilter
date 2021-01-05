@@ -23,7 +23,6 @@ public class IpRangesControllerTest {
 
     @Test
     public void shouldContainEuIpPrefixes() {
-        //test
         String responseBody = webTestClient.get()
                 .uri("/ip-ranges?region=EU")
                 .exchange()

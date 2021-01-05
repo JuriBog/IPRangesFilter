@@ -1,20 +1,10 @@
 package aws.ipranges.domain;
 
-import lombok.Builder;
 
-@Builder
 public class IpPrefix {
     private String region;
     private String service;
     private String network_border_group;
-
-    public IpPrefix(){}
-
-    public IpPrefix(String region, String service, String network_border_group) {
-        this.region = region;
-        this.service = service;
-        this.network_border_group = network_border_group;
-    }
 
     public String getRegion() {
         return region;
