@@ -1,6 +1,7 @@
 package aws.ipranges.controller;
 
 import aws.ipranges.domain.IpRange;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,9 @@ public class IpRangesController {
 
     private WebClient webClient;
 
+    @Value("${aws.ip-ranges.url}")
+    private String awsUrl;
+
     public IpRangesController(WebClient client){
         this.webClient = client;
     }
@@ -27,7 +31,7 @@ public class IpRangesController {
     public Mono<ResponseEntity<String>> getIpRangesById(@RequestParam("region") String region){
         return webClient
                 .get()
-                .uri("https://ip-ranges.amazonaws.com/ip-ranges.json")
+                .uri(awsUrl)
                 .accept(MediaType.APPLICATION_JSON)
                 .retrieve()
                 .onStatus(HttpStatus::is5xxServerError, clientResponse ->
