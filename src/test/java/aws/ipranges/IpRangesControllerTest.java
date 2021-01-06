@@ -23,7 +23,7 @@ public class IpRangesControllerTest {
 
     @Test
     public void shouldContainEuIpPrefixes() {
-        String responseBody = webTestClient.get()
+        String euPrefixes = webTestClient.get()
                 .uri("/ip-ranges?region=EU")
                 .exchange()
                 .expectBody(String.class).returnResult().getResponseBody();
@@ -35,7 +35,7 @@ public class IpRangesControllerTest {
                 .expectStatus().isOk()
                 .expectHeader().contentType(MediaType.valueOf("text/plain;charset=UTF-8"))
                 .expectBody(String.class)
-                .isEqualTo( responseBody);
+                .isEqualTo(euPrefixes);
 
     }
 
